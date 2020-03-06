@@ -1,24 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Login from "./component/login";
+import Admin from "./component/admin/admin";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  Switch
+} from "react-router-dom";
+
+// const [user, setUser] = useState("");
+// const [password, setPassword] = useState("");
 
 function App() {
+  const [authenticate, setAuthenticate] = useState(false);
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props =>
+        authenticate === true ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/"
+            }}
+          />
+        )
+      }
+    />
+  );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Login
+                {...props}
+                setAuthenticate={setAuthenticate}
+                authenticate={authenticate}
+              />
+            )}
+          />
+          <PrivateRoute path="/admin" component={Admin} />
+        </Switch>
+      </Router>
     </div>
   );
 }
