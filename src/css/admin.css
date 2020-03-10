@@ -1,0 +1,79 @@
+.Login {
+  padding: 60px 0;
+}
+
+.Login form {
+  margin: 0 auto;
+  max-width: 320px;
+}
+.adminMain {
+  display: flex;
+  background-image: linear-gradient(#485C6C, #40365E);
+  height:110%;
+}
+.dataTable {
+  background-color: white;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 5%;
+  float: right;
+  width: 82%;
+}
+.scrollbar {
+  position: relative;
+  height: 500px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: inline-block;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: .5;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal {
+  z-index: 100px;
+  background: white;
+  position: absolute;
+  margin: 1.75rem auto;
+  border-radius: 3px;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close-button {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  opacity: .3;
+  cursor: pointer;
+  border: none;
+}
+
+

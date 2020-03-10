@@ -5,7 +5,6 @@ import Admin from "./component/admin/admin";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Redirect,
   Switch
 } from "react-router-dom";
@@ -15,6 +14,7 @@ import {
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
+  const [loadLoginResult, setloadLoginResult] = useState(true);
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
       {...rest}

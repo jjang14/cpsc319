@@ -3,8 +3,9 @@ import loginImg from "../svg/login.svg";
 import "../scss/login.scss";
 import { axiosInstance } from "../config/axios";
 import { NavLink } from "react-router-dom";
-
+import { useHistory } from "react-router";
 const Login = ({ authenticate, setAuthenticate }) => {
+  const history = useHistory();
   const validate = () => {
     // setUser(document.getElementById("username").value);
     // setPassword(document.getElementById("password").value);
@@ -12,20 +13,24 @@ const Login = ({ authenticate, setAuthenticate }) => {
     let password = document.getElementById("password").value;
     console.log(document.getElementById("username").value);
     console.log(document.getElementById("password").value);
-    axiosInstance
-      .get(`${user}/${password}`)
-      .then(response => {
-        console.log(response.status);
-        if (response.status === 200) {
-          console.log("in");
-          setAuthenticate(true);
-          console.log(authenticate);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    setTimeout(function() {
+      axiosInstance
+        .get(`${user}/${password}`, { timeout: 30000 })
+        .then(response => {
+          console.log(response.status);
+          if (response.status === 200) {
+            console.log("inss");
+            setAuthenticate(true);
+            console.log("the authenticate value is ", authenticate);
+            history.push("/admin");
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }, 1000);
   };
+  console.log("the history is ", history);
   return (
     <div className="base-container">
       <div className="header">Login</div>

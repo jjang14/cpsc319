@@ -60,6 +60,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ma
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
+1. Update the Login page with account ‘turtle’ and password ‘319’
+2. Udapte UI and implemented responsive table with data from SQL server
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
