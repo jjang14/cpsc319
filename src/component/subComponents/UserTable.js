@@ -53,7 +53,8 @@ const UserTable = ({
                 <TableHeaderColumn width="150" dataField='firstName'>First Name</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='lastName'>Last Name</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='username'>User Name</TableHeaderColumn>
-                <TableHeaderColumn width="150" dataField='locationName'>Location</TableHeaderColumn>
+                <TableHeaderColumn width="150" dataField='location'>Location</TableHeaderColumn>
+                <TableHeaderColumn width="150" dataField='type'>Type</TableHeaderColumn>
             </BootstrapTable>
         </div>
     );
