@@ -1,22 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import Modal from 'react-bootstrap/Modal';
+import React from "react";
+import Button from "react-bootstrap/Button";
 
-const UserModal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
-  <React.Fragment>
-    <div className="modal-overlay"/>
-    <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
-      <div className="modal">
-        <div className="modal-header">
-          <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <p>
-          Hello, I'm a modal.
-        </p>
-      </div>
-    </div>
-  </React.Fragment>, document.body
-) : null;
+
+
+function UserModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Create New User
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className="input-group">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="">First and last name</span>
+                    </div>
+                    <input type="text" className="form-control"/>
+                        <input type="text" className="form-control"/>
+                </div>
+            </Modal.Body>
+            <Modal.Footer><Button variant="secondary" onClick={props.onHide}>
+                Close
+            </Button>
+                <Button variant="primary" >
+                    Save Changes
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
 
 export default UserModal;

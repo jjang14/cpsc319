@@ -21,11 +21,11 @@ export default class Admin extends React.Component{
   render() {
 
     let table = null;
-    if(this.state.current_table == "user") {
+    if(this.state.current_table === "user") {
       table = <div className = "dataTable"> <UserTable/> </div>;
-    }else if(this.state.current_table == "location") {
+    }else if(this.state.current_table === "location") {
       table = <div className = "dataTable"> <LocationTable/> </div>
-    } else if(this.state.current_table == "skill") {
+    } else if(this.state.current_table === "skill") {
       table = <div className = "dataTable"> <SkillTable/> </div>
     } else {
       table = <div className = "dataTable"> <DisciplineTable/> </div>

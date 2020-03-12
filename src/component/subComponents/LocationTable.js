@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { loadLocations } from "../../redux/actions/locationsActions"
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
+import Button from "react-bootstrap/Button";
 
 
 const LocationTable = ({
@@ -20,8 +21,7 @@ const LocationTable = ({
 
     return (
         <div>
-            <button type="button" className="myBotton">Add Location</button>
-            <button type="button" className="myBotton">Remove Location</button>
+            <Button>Add Location</Button>
             <BootstrapTable data={ locations } search = {true} pagination = {true} striped hover condensed>
                 <TableHeaderColumn width="150" dataField='id' isKey>Location id</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='code'> Location Code</TableHeaderColumn>

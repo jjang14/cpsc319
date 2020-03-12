@@ -6,8 +6,10 @@ import { connect } from 'react-redux';
 import { loadUsers } from '../../redux/actions/usersActions';
 import { loadLocations } from '../../redux/actions/locationsActions';
 import React, { useEffect } from 'react';
-import useModal from "./useModal";
+import Button from 'react-bootstrap/Button';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import UserModal from "./UserModal";
+
 
 
 const UserTable = ({
@@ -30,16 +32,22 @@ const UserTable = ({
         }
     }, [users, locations, loadUsers, loadLocations]);
 
-    const {isShowing, toggle} = useModal();
+    const [modalShow, setModalShow] = React.useState(false);
+
+
 
     return (
         <div>
-            <button type="button" className="myBotton" onClick={toggle}>Add User</button>
-            <UserModal 
-                isShowing={isShowing}
-                hide={toggle}
+            <ButtonToolbar>
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                    Add User
+                </Button>
+
+                <UserModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
                 />
-            <button type="button" className="myBotton">Remove User</button>
+            </ButtonToolbar>
             <BootstrapTable data={ users } search ={true} pagination = {true} striped hover condensed>
                 <TableHeaderColumn width="150" dataField='id' isKey>Id</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='firstName'>First Name</TableHeaderColumn>

@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { loadSkills } from '../../redux/actions/skillsAction'
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
+import {Button} from "react-bootstrap";
 
 const SkillTable = ({
                         skills,
@@ -20,8 +21,7 @@ const SkillTable = ({
 
     return (
         <div>
-            <button type="button" className="myBotton">Add Skill</button>
-            <button type="button" className="myBotton">Remove Skill</button>
+            <Button>Add Skill</Button>
             <BootstrapTable data={ skills } search = {true} pagination = {true} striped hover condensed>
                 <TableHeaderColumn width="150" dataField='id' isKey>Id</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='disciplineId'> Discipline Id</TableHeaderColumn>

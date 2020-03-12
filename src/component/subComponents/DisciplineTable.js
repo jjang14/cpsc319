@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { loadDisciplines } from "../../redux/actions/disciplinesActions"
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
+import Button from "react-bootstrap/Button";
 
 
 
@@ -22,8 +23,7 @@ const DisciplineTable = ({
 
     return (
         <div>
-            <button type="button" className="myBotton">Add Discipline</button>
-            <button type="button" className="myBotton">Remove Discipline</button>
+            <Button>Add Discipline</Button>
             <BootstrapTable data={ disciplines } search={true} pagination = {true} striped hover condensed>
                 <TableHeaderColumn width="150" dataField='id' isKey>Id</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='name'> Discipline Name</TableHeaderColumn>
