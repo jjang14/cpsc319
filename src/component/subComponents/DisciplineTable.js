@@ -5,6 +5,9 @@ import { loadDisciplines } from "../../redux/actions/disciplinesActions"
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Button from "react-bootstrap/Button";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import SkillModal from "./SkillModal";
+import DisciplineModal from "./DisciplineModal";
 
 
 
@@ -21,9 +24,22 @@ const DisciplineTable = ({
         }
     }, [disciplines, loadDisciplines]);
 
+    const [modalShow, setModalShow] = React.useState(false);
+
+
     return (
         <div>
-            <Button>Add Discipline</Button>
+            <ButtonToolbar>
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                    Add Skill
+                </Button>
+
+                <DisciplineModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            </ButtonToolbar>
+
             <BootstrapTable data={ disciplines } search={true} pagination = {true} striped hover condensed>
                 <TableHeaderColumn width="150" dataField='id' isKey>Id</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='name'> Discipline Name</TableHeaderColumn>

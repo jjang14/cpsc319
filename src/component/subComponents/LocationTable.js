@@ -5,6 +5,9 @@ import { loadLocations } from "../../redux/actions/locationsActions"
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Button from "react-bootstrap/Button";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import SkillModal from "./SkillModal";
+import LocationModal from "./LocationModal";
 
 
 const LocationTable = ({
@@ -18,10 +21,22 @@ const LocationTable = ({
             });
         }
     }, [locations, loadLocations]);
+    const [modalShow, setModalShow] = React.useState(false);
+
 
     return (
         <div>
-            <Button>Add Location</Button>
+            <ButtonToolbar>
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                    Add Skill
+                </Button>
+
+                <LocationModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            </ButtonToolbar>
+
             <BootstrapTable data={ locations } search = {true} pagination = {true} striped hover condensed>
                 <TableHeaderColumn width="150" dataField='id' isKey>Location id</TableHeaderColumn>
                 <TableHeaderColumn width="150" dataField='code'> Location Code</TableHeaderColumn>

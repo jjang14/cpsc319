@@ -12,6 +12,7 @@ import UserModal from "./UserModal";
 
 
 
+
 const UserTable = ({
                        users,
                        locations,
@@ -87,6 +88,5 @@ export default connect(
     mapDispatchToProps,
 )(UserTable);
 
-//a
 
 
