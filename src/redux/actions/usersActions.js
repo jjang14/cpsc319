@@ -29,15 +29,18 @@ export const loadUsers = () => {
   };
 };
 
-export const createAUser = () => {
+export const createAUser = user => {
   return dispatch => {
     return axios
-      .get(baseURL, { headers })
-      .then(response => {
-        dispatch(createUserData(response.data));
-      })
-      .catch(error => {
-        throw error;
-      });
+      .post(
+          baseURL,
+          user,
+          {headers})
+        .then(response => {
+        return dispatch(createUserData(response.data));
+        })
+        .catch(error => {
+          throw error;
+        });
   };
 };

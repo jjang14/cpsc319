@@ -21,3 +21,9 @@ export const loadLocations = () => {
       });
   };
 };
+
+export const createLocation = loactionData => {
+  return dispatch => {
+
+  }
+}

@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Button from "react-bootstrap/Button";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-import SkillModal from "./SkillModal";
 import LocationModal from "./LocationModal";
 
 
@@ -28,7 +27,7 @@ const LocationTable = ({
         <div>
             <ButtonToolbar>
                 <Button variant="primary" onClick={() => setModalShow(true)}>
-                    Add Skill
+                    Add Location
                 </Button>
 
                 <LocationModal

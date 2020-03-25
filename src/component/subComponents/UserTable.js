@@ -18,6 +18,7 @@ const UserTable = ({
                        locations,
                        loadUsers,
                        loadLocations,
+                       createAUser,
                    }) => {
     useEffect(() => {
         if (users.length === 0) {
@@ -81,6 +82,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     loadUsers,
     loadLocations,
+    createAUser,
 };
 
 export default connect(

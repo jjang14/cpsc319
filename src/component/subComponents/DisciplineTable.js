@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import Button from "react-bootstrap/Button";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-import SkillModal from "./SkillModal";
 import DisciplineModal from "./DisciplineModal";
 
 
@@ -31,7 +30,7 @@ const DisciplineTable = ({
         <div>
             <ButtonToolbar>
                 <Button variant="primary" onClick={() => setModalShow(true)}>
-                    Add Skill
+                    Add Discipline
                 </Button>
 
                 <DisciplineModal
